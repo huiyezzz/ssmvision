@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="java.cm.hm.mapper.SingerMapper" >
+  <resultMap id="BaseResultMap" type="main.java.cm.hm.dao.Singer" >
+    <result column="sname" property="sname" jdbcType="VARCHAR" />
+    <result column="songnum" property="songnum" jdbcType="INTEGER" />
+    <result column="albumnum" property="albumnum" jdbcType="INTEGER" />
+    <result column="mvnum" property="mvnum" jdbcType="INTEGER" />
+    <result column="object_version_number" property="objectVersionNumber" jdbcType="BIGINT" />
+    <result column="request_id" property="requestId" jdbcType="BIGINT" />
+    <result column="program_id" property="programId" jdbcType="BIGINT" />
+    <result column="created_by" property="createdBy" jdbcType="BIGINT" />
+    <result column="creation_date" property="creationDate" jdbcType="TIMESTAMP" />
+    <result column="last_updated_by" property="lastUpdatedBy" jdbcType="BIGINT" />
+    <result column="last_update_date" property="lastUpdateDate" jdbcType="TIMESTAMP" />
+    <result column="last_update_login" property="lastUpdateLogin" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    sname, songnum, albumnum, mvnum, object_version_number, request_id, program_id, created_by, 
+    creation_date, last_updated_by, last_update_date, last_update_login
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="main.java.cm.hm.po.SingerExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from singer
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="main.java.cm.hm.po.SingerExample" >
+    delete from singer
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="main.java.cm.hm.dao.Singer" >
+    insert into singer (sname, songnum, albumnum, 
+      mvnum, object_version_number, request_id, 
+      program_id, created_by, creation_date, 
+      last_updated_by, last_update_date, last_update_login
+      )
+    values (#{sname,jdbcType=VARCHAR}, #{songnum,jdbcType=INTEGER}, #{albumnum,jdbcType=INTEGER}, 
+      #{mvnum,jdbcType=INTEGER}, #{objectVersionNumber,jdbcType=BIGINT}, #{requestId,jdbcType=BIGINT}, 
+      #{programId,jdbcType=BIGINT}, #{createdBy,jdbcType=BIGINT}, #{creationDate,jdbcType=TIMESTAMP}, 
+      #{lastUpdatedBy,jdbcType=BIGINT}, #{lastUpdateDate,jdbcType=TIMESTAMP}, #{lastUpdateLogin,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="main.java.cm.hm.dao.Singer" >
+    insert into singer
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sname != null" >
+        sname,
+      </if>
+      <if test="songnum != null" >
+        songnum,
+      </if>
+      <if test="albumnum != null" >
+        albumnum,
+      </if>
+      <if test="mvnum != null" >
+        mvnum,
+      </if>
+      <if test="objectVersionNumber != null" >
+        object_version_number,
+      </if>
+      <if test="requestId != null" >
+        request_id,
+      </if>
+      <if test="programId != null" >
+        program_id,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="creationDate != null" >
+        creation_date,
+      </if>
+      <if test="lastUpdatedBy != null" >
+        last_updated_by,
+      </if>
+      <if test="lastUpdateDate != null" >
+        last_update_date,
+      </if>
+      <if test="lastUpdateLogin != null" >
+        last_update_login,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sname != null" >
+        #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="songnum != null" >
+        #{songnum,jdbcType=INTEGER},
+      </if>
+      <if test="albumnum != null" >
+        #{albumnum,jdbcType=INTEGER},
+      </if>
+      <if test="mvnum != null" >
+        #{mvnum,jdbcType=INTEGER},
+      </if>
+      <if test="objectVersionNumber != null" >
+        #{objectVersionNumber,jdbcType=BIGINT},
+      </if>
+      <if test="requestId != null" >
+        #{requestId,jdbcType=BIGINT},
+      </if>
+      <if test="programId != null" >
+        #{programId,jdbcType=BIGINT},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="creationDate != null" >
+        #{creationDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdatedBy != null" >
+        #{lastUpdatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdateDate != null" >
+        #{lastUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateLogin != null" >
+        #{lastUpdateLogin,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="main.java.cm.hm.po.SingerExample" resultType="java.lang.Integer" >
+    select count(*) from singer
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update singer
+    <set >
+      <if test="record.sname != null" >
+        sname = #{record.sname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.songnum != null" >
+        songnum = #{record.songnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.albumnum != null" >
+        albumnum = #{record.albumnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.mvnum != null" >
+        mvnum = #{record.mvnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.objectVersionNumber != null" >
+        object_version_number = #{record.objectVersionNumber,jdbcType=BIGINT},
+      </if>
+      <if test="record.requestId != null" >
+        request_id = #{record.requestId,jdbcType=BIGINT},
+      </if>
+      <if test="record.programId != null" >
+        program_id = #{record.programId,jdbcType=BIGINT},
+      </if>
+      <if test="record.createdBy != null" >
+        created_by = #{record.createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="record.creationDate != null" >
+        creation_date = #{record.creationDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastUpdatedBy != null" >
+        last_updated_by = #{record.lastUpdatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="record.lastUpdateDate != null" >
+        last_update_date = #{record.lastUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastUpdateLogin != null" >
+        last_update_login = #{record.lastUpdateLogin,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update singer
+    set sname = #{record.sname,jdbcType=VARCHAR},
+      songnum = #{record.songnum,jdbcType=INTEGER},
+      albumnum = #{record.albumnum,jdbcType=INTEGER},
+      mvnum = #{record.mvnum,jdbcType=INTEGER},
+      object_version_number = #{record.objectVersionNumber,jdbcType=BIGINT},
+      request_id = #{record.requestId,jdbcType=BIGINT},
+      program_id = #{record.programId,jdbcType=BIGINT},
+      created_by = #{record.createdBy,jdbcType=BIGINT},
+      creation_date = #{record.creationDate,jdbcType=TIMESTAMP},
+      last_updated_by = #{record.lastUpdatedBy,jdbcType=BIGINT},
+      last_update_date = #{record.lastUpdateDate,jdbcType=TIMESTAMP},
+      last_update_login = #{record.lastUpdateLogin,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
