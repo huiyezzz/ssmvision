@@ -1,5 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page isELIgnored="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,8 +11,8 @@
 <META content="MSHTML 6.00.2900.3492" name=GENERATOR>
 </HEAD>
 <BODY>
-	<FORM id=form1 name=form1 action="${pageContext.request.contextPath }customer/CustomerServlet?method=editCustomer" method=post>
-		<input type="hidden" name="custId" value="${customer.custId}">
+	<FORM id=form1 name=form1 action="${pageContext.request.contextPath }/editCustomer.action" method=post>
+		<input type="hidden" name="cust_id" value="${customer.cust_id}">
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
 			<TBODY>
 				<TR>
@@ -40,41 +41,41 @@
 							<TR>
 								<td>客户名称：</td>
 								<td>
-									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="custName" value="${customer.custName}">
+									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="cust_name" value="${customer.cust_name}">
 								</td>
 								<td>所属行业 ：</td>
 								<td>
-									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="custIndustry" value="${customer.custIndustry}">
+									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="cust_industry" value="${customer.cust_industry}">
 								</td>
 							</TR>							
 							<TR>	
 								<td>信息来源 ：</td>
 								<td>
-									<select name="custSource" class=textbox id=sChannel2 style="WIDTH: 180px">
+									<select name="cust_source" class=textbox id=sChannel2 style="WIDTH: 180px">
 										<option value="non">---请选择---</option>
-										<option value="6" ${customer.custSource=="6"?"selected":""}>电话营销</option>
-										<option value="7" ${customer.custSource=="7"?"selected":""}>网络营销</option>
+										<option value="6" ${customer.cust_source=="6"?"selected":""}>电话营销</option>
+										<option value="7" ${customer.cust_source=="7"?"selected":""}>网络营销</option>
 									</select>
 								</td>
 								<td>客户级别：</td>
 								<td>
-									<select name="custLevel" class=textbox id=sChannel2 style="WIDTH: 180px">
+									<select name="cust_level" class=textbox id=sChannel2 style="WIDTH: 180px">
 										<option value="non">---请选择---</option>
-										<option value="22" ${customer.custLevel=="22"?"selected":""}>普通客户</option>
-										<option value="23" ${customer.custLevel=="23"?"selected":""}>VIP客户</option>
+										<option value="22" ${customer.cust_level=="22"?"selected":""}>普通客户</option>
+										<option value="23" ${customer.cust_level=="23"?"selected":""}>VIP客户</option>
 									</select>								
 								</td>
 							</TR>
 							<TR>
-								<td>联系地址 ：</td>
-								<td>
-									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="custAddress" value="${customer.custAddress}">
-								</td>
-								<td>联系电话 ：</td>
-								<td>
-									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="custPhone" value="${customer.custPhone}">
-								</td>
-							</TR>
+							<td>联系地址 ：</td>
+							<td>
+								<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="cust_address" value="${customer.cust_address}">
+							</td>
+							<td>联系电话 ：</td>
+							<td>
+								<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="cust_phone" value="${customer.cust_phone}">
+							</td>
+						</TR>
 							<tr>
 								<td rowspan=2>
 									<INPUT class=button id=sButton2 type=submit value=" 保存 " name=sButton2>

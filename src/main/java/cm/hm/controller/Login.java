@@ -24,13 +24,13 @@ public class Login {
         User user1 = userMapper.selectByName(user);
         if(user1!=null){
             Session.setAttribute("u_name",user.getU_name());
-            return "menu";
+            return "index";
         }
         return "login";
 
     }
-    @RequestMapping("test.action")
-    public String test(){
-        return "menu";
-    }
+//    @RequestMapping("test.action")
+//    public String test(){
+//        return "menu";
+//    }
 }

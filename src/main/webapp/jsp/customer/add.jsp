@@ -1,5 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page isELIgnored="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,7 +11,7 @@
 <META content="MSHTML 6.00.2900.3492" name=GENERATOR>
 </HEAD>
 <BODY>
-	<FORM id=form1 name=form1 action="${pageContext.request.contextPath }/customer/CustomerServlet?method=addCustomer" method=post>
+	<FORM id=form1 name=form1 action="${pageContext.request.contextPath }/addCustomer.action" method=post>
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
 			<TBODY>
 				<TR>
@@ -39,17 +40,17 @@
 							<TR>
 								<td>客户名称：</td>
 								<td>
-									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="custName">
+									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="cust_name">
 								</td>
 								<td>所属行业 ：</td>
 								<td>
-									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="custIndustry">
+									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="cust_industry">
 								</td>
 							</TR>							
 							<TR>	
 								<td>信息来源 ：</td>
 								<td>
-									<select name="custSource" class=textbox id=sChannel2 style="WIDTH: 180px">
+									<select name="cust_source" class=textbox id=sChannel2 style="WIDTH: 180px">
 										<option value="non">---请选择---</option>
 										<option value="6">电话营销</option>
 										<option value="7">网络营销</option>
@@ -57,7 +58,7 @@
 								</td>
 								<td>客户级别：</td>
 								<td>
-									<select name="custLevel" class=textbox id=sChannel2 style="WIDTH: 180px">
+									<select name="cust_level" class=textbox id=sChannel2 style="WIDTH: 180px">
 										<option value="non">---请选择---</option>
 										<option value="22">普通客户</option>
 										<option value="23">VIP客户</option>
@@ -67,11 +68,11 @@
 							<TR>
 								<td>联系地址 ：</td>
 								<td>
-									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="custAddress">
+									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="cust_address">
 								</td>
 								<td>联系电话 ：</td>
 								<td>
-									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="custPhone">
+									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="cust_phone">
 								</td>
 							</TR>
 							<tr>

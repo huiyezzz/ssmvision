@@ -1,5 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page isELIgnored="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -53,7 +54,7 @@
 											<TBODY>
 												<TR>
 													<TD>客户名称：</TD>
-													<TD><INPUT class=textbox id=sChannel2 style="WIDTH: 80px" maxLength=50 name="custName"></TD>
+													<TD><INPUT class=textbox id=sChannel2 style="WIDTH: 80px" maxLength=50 name="cust_name"></TD>
 													<TD><INPUT class=button id=sButton2 type=submit value=" 筛选 " name=sButton2></TD>
 												</TR>
 											</TBODY>
@@ -73,18 +74,18 @@
 													<TD>联系电话</TD>
 													<TD>操作</TD>
 												</TR>
-												<c:forEach items="${customers}" var="customer">
+												<c:forEach items="${list}" var="customer">
 												<TR style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
-													<TD>${customer.custName }</TD>
-													<TD>${customer.custLevel }</TD>
-													<TD>${customer.custSource }</TD>
-													<TD>${customer.custIndustry }</TD>
-													<TD>${customer.custAddress }</TD>
-													<TD>${customer.custPhone }</TD>
+													<TD>${customer.cust_name }</TD>
+													<TD>${customer.cust_level}</TD>
+													<TD>${customer.cust_source }</TD>
+													<TD>${customer.cust_industry}</TD>
+													<TD>${customer.cust_address }</TD>
+													<TD>${customer.cust_phone }</TD>
 													<TD>
-													<a href="${pageContext.request.contextPath }/customer/CustomerServlet?method=editCustomerUI&custId=${customer.custId}">修改</a>
+													<a href="${pageContext.request.contextPath }/editCustomerUI.action?custId=${customer.cust_id}">修改</a>
 													&nbsp;&nbsp;
-													<a href="${pageContext.request.contextPath }/customer/CustomerServlet?method=removeCustomer&custId=${customer.custId}">删除</a>
+													<a href="${pageContext.request.contextPath }/removeCustomer.action?custId=${customer.cust_id}">删除</a>
 													</TD>
 												</TR>	
 												</c:forEach>

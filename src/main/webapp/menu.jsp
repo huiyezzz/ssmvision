@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<%@page isELIgnored="false"%>
+<%@page isELIgnored="false"%>g
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
 <HTML xmlns="http://www.w3.org/1999/xhtml">
 <HEAD id=Head1>
@@ -103,6 +103,7 @@ A.active {
 </HEAD>
 <BODY>
 	<FORM id=form1 name=form1 action=YHMenu.aspx method=post>
+
 		<TABLE cellSpacing=0 cellPadding=0 width=210 align=center border=0>
 			<TBODY>
 				<TR>
@@ -112,6 +113,7 @@ A.active {
 				</TR>
 			</TBODY>
 		</TABLE>
+
 		<TABLE cellSpacing=0 cellPadding=0 width=210 align=center border=0>
 			<TBODY>
 				<TR>
@@ -130,12 +132,12 @@ A.active {
 											<TBODY>
 												<TR>
 													<TD class=menuSmall>
-														<A class=style2 href="${pageContext.request.contextPath}/customer/CustomerServlet?method=addCustomerUI"  target=main>－ 新增客户</A>
+														<A class=style2 href="${pageContext.request.contextPath}/addCustomerUI.action"  target=main>－ 新增客户</A>
 													</TD>
 												</TR>
 												<TR> 
 													<TD class=menuSmall>
-														<A class=style2 href="${pageContext.request.contextPath}/customer/CustomerServlet?method=listCustomer" target=main>－ 客户列表</A>
+														<A class=style2 href="${pageContext.request.contextPath}/listCustomer.action" target=main>－ 客户列表</A>
 													</TD>
 												</TR>
 											</TBODY>
@@ -290,6 +292,8 @@ A.active {
 				</TR>
 			</TBODY>
 		</TABLE>
+
+
 		<TABLE cellSpacing=0 cellPadding=0 width=210 align=center border=0>
 			<TBODY>
 				<TR>
@@ -299,6 +303,8 @@ A.active {
 				</TR>
 			</TBODY>
 		</TABLE>
+
+
 	</FORM>
 </BODY>
 </HTML>
