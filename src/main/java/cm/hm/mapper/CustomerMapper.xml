@@ -4,6 +4,9 @@
     <select id="selectAll"  resultType="cm.hm.po.Customer">
         select * from cst_customer
     </select>
+    <select id="selectByName" parameterType="String" resultType="cm.hm.po.Customer">
+        select * from cst_customer where cust_name like '%${value}%'
+    </select>
     <select id="selectById" parameterType="int" resultType="cm.hm.po.Customer">
         select * from cst_customer where cust_id=#{id}
     </select>

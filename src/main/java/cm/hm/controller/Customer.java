@@ -28,6 +28,13 @@ public class Customer  {
         return  "jsp/customer/list";
 
     }
+    @RequestMapping("/listCustomerByName")
+    public String listCustomerByName(String cust_name,Model model){
+        List<cm.hm.po.Customer> customers = customerMapper.selectByName(cust_name);
+        model.addAttribute("list",customers);
+        return  "jsp/customer/list";
+
+    }
     @RequestMapping("/addCustomerUI")
     public String addCustomerUI(){
         return "jsp/customer/add";

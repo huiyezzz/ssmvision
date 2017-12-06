@@ -13,5 +13,6 @@ public interface CustomerMapper {
     void delete(String id);
     void update(Customer customer);
     Customer selectById(int id);
+    List<Customer> selectByName(String name);
 
 }

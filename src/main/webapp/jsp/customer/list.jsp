@@ -21,7 +21,7 @@
 <META content="MSHTML 6.00.2900.3492" name=GENERATOR>
 </HEAD>
 <BODY>
-	<FORM id="customerForm" name="customerForm" action="${pageContext.request.contextPath }/customer/CustomerServlet?method=listCustomer" method=post>	
+	<FORM id="customerForm" name="customerForm" action="${pageContext.request.contextPath }/listCustomerByName.action" method=post>
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
 			<TBODY>
 				<TR>
