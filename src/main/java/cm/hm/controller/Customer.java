@@ -55,6 +55,7 @@ public class Customer  {
 
     @RequestMapping("/editCustomer")
     public String editCustomer(cm.hm.po.Customer customer){
+        System.out.println(1111111);
         System.out.println(customer);
         customerMapper.update(customer);
 

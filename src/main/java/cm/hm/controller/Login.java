@@ -29,8 +29,4 @@ public class Login {
         return "login";
 
     }
-//    @RequestMapping("test.action")
-//    public String test(){
-//        return "menu";
-//    }
 }
