@@ -55,6 +55,8 @@
 			<bean class="cm.hm.interceptor.interceoptro1"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
+
+	<bean class="cm.hm.controller.ExceptionResolver"></bean>
 	
 
 

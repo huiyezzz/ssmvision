@@ -36,7 +36,9 @@ public class Customer  {
 
     }
     @RequestMapping("/addCustomerUI")
-    public String addCustomerUI(){
+    public String addCustomerUI() throws CustomException {
+//        throw new CustomException("没事整个异常玩一下");
+
         return "jsp/customer/add";
 
     }
